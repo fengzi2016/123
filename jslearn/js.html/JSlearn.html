@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>js学习</title>
+</head>
+<body>
+ <script>document.write("论陈小姐的自我修养");</script>
+<button type="button"  id="haha" onclick="alert('其实没啥修养')"> 她有修养吗</button>
+<div id="introduce">她说她18</div>
+<button type="button" onclick="ture()">实际上</button>
+<div>以下是两张逗逼照片</div>
+<img id="twoimgs"src="../img/me.png" onclick="img()">
+<div>如果你找不到第二张，请点击下面那个按钮</div>
+<button type="button" onclick="alert('你个逗逼！点那个图片啊')">你倒是点啊~
+</button>
+<p>下面和陈同学讲个内涵图片笑话</p>
+<style type="text/css"> 
+.guan{width :100px;
+height :100px;
+border :solid;
+text-align:center;
+}
+</style>
+<div id="backg" class="guan">你小时候的心的颜色是这样的
+</div>
+<button type="button" onclick="change()">预知下事如何，尽情点我~
+</button>
+<div class="guan" id="red" style="background:#FF95CA;">你心花怒放的时候内心是这样的</div>
+
+<button type="button" onclick="change2()">预知下事如何，尽情点我~
+</button>
+</body>
+<script>
+function ture(){
+	x=document.getElementById("introduce");
+    x.innerHTML="但我觉得其实是19了";
+}
+function img(){
+	element=document.getElementById("twoimgs");
+	if(element.src.match("me"))
+	{
+		element.src="../img/her.png";
+	}
+	else{
+		element.src="../img/me.png";
+	}
+}
+function change() {
+	x=document.getElementById("backg");
+	x.style.background="yellow";
+	x.innerHTML="长大后你的内心是酱紫滴~";
+}
+function change2() {
+	x=document.getElementById("red");
+	x.style.background="#9D9D9D";
+	x.innerHTML="你伤心的时候内心是这样的";
+}
+
+
+</script>
+</html>

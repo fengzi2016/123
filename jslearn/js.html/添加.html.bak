@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+
+<table border="1";width="400">
+ <tr>
+	<td>名称</td>
+	<td>值</td>
+	<td><input type="button" value="添加" onclick="add()"></td>
+	
+ </tr>
+</table>
+  
+ </body>
+ <script>
+ function add(){
+		var tr=document.createElement("tr");
+		var td1=document.createElement("td");
+		var td2=document.createElement("td");
+		var td3=document.createElement("td");
+		var input1=document.createElement("input");
+		var input2=document.createElement("input");
+		var input3=document.createElement("input");
+		input1.setAttribute("type","text");
+		input2.setAttribute("type","text");
+		input3.setAttribute("type","button");
+		input3.setAttribute("value","删除");
+		td1.appendChild(input1);
+		td2.appendChild(input2);
+		td3.appendChild(input3);
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
+		document.getElementsByTagName("table")[0].appendChild(tr);
+
+
+ }
+
+ </script>
+</html>

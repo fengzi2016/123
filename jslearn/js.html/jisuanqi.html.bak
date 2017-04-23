@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+<form method="post" action="" name="myform">
+	<input  id="number1"  type="text" name="" onfocus="changeNumber(1)">
+	<input  id="f"        type="text" name="" readonly style="width:10px;">
+	<input  id="number2"  type="text" name="" onfocus="changeNumber(2)">
+	=
+	<input  id="equalx" type="text" name="" onclick="equalNum()" >
+	<table>
+	<tr>
+		<td><input type="button" value="+" onclick="fff(this.value)"></td>
+
+		<td><input type="button" value="-" onclick="fff(this.value)"></td>
+	
+
+		<td><input type="button" value="*" onclick="fff(this.value)"></td>
+	
+
+		<td><input type="button" value="/" onclick="fff(this.value)"></td>
+
+
+		<td><input type="button" value="=" onclick=""></td>
+
+	
+		<td><input type="button" value="清除" onclick="clearForm()"></td>
+
+	</tr>
+	</table>
+	<table border="1">
+	<table>
+	<tr>
+		<td><input type="button" value="1" onclick="createNumber(this.value)"></td>
+		<td><input type="button" value="2" onclick="createNumber(this.value)"></td>
+		<td><input type="button" value="3" onclick="createNumber(this.value)"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="4" onclick="createNumber(this.value)"></td>
+		<td><input type="button" value="5" onclick="createNumber(this.value)"></td>
+		<td><input type="button" value="6" onclick="createNumber(this.value)"></td>
+	</tr>
+
+	<tr>
+		<td><input type="button" value="7" onclick="createNumber(this.value)"></td>
+		<td><input type="button" value="8" onclick="createNumber(this.value)"></td>
+		<td><input type="button" value="9" onclick="createNumber(this.value)"></td>
+	</tr>
+	</table>
+
+</form>
+
+ 
+ </body>
+ <script>
+	function clearForm(){
+		var form=document.getElementsByName('myform')[0];
+		// var form=document.getElementsByTagName('form')[0];
+		form.reset();
+	}
+	//运算符功能
+	function fff(val){
+		document.getElementById("f").value=val;
+	}
+	var flag=1;
+	function changeNumber(val){
+	  flag=val;
+	  }
+	  //输入数字功能
+	 function createNumber(v){
+		var oj=document.getElementById("number"+flag);
+		var val=oj.value;
+		var number=val+""+v;
+		oj.value=number;
+		}
+		function cun(){
+		var n1=parseInt(document.getElementById("number1").value);
+		var n2=parseInt(document.getElementById("number2").value);
+		var favl=document.getElemetById("f").value;
+		switch(favl){
+				case "+":return n1+n2;
+				case "-":return n1-n2;
+				case "*":return n1*n2;
+				case "/":return n1/n2;
+					}
+		}
+		function equalNum(){
+		var val=cun();
+		document.getElementById("equalx").value=val;
+		flag=1;
+		}
+ </script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta charset="utf-8">
+ </head>
+
+ <body>
+ <img id="image" style="position:absolute;top:500px;left:5px;width=170px; height=100px;" src="../img/zidang.png"  alt="子弹头"/>
+<input type="button" value="发射" onclick="start()">
+<input type="button" value="爆炸" onclick="boom()">
+ </body>
+ 
+<script type="text/javascript">
+var w=1000; var t=100; var m=10;var k=300;var status;
+
+	function start(){
+	 status=1;
+	setTimeout(move,t);
+
+	}
+	function boom(){
+ 	var oj=document.getElementById("image");
+		oj.src="../img/boom.jpg";
+		status=-1;
+ }
+	function move(){
+		var oj=document.getElementById("image");
+		var x= parseInt(oj.style.left);
+		var y=parseInt(oj.style.top);
+		if(x<w/2){
+			x=x+m;y=y-m;
+		}
+		if(x>w/2){
+			oj.src="../img/zidang2.png";
+			x=x+m;y=y+m;
+		}
+		if(x>w){ status=-1;}
+		oj.style.left=x+"px";
+		oj.style.top=y+"px";
+		if(status==1){
+		setTimeout(move,t);
+	}
+		
+ }setTimeout(move,t);
+
+ </script>
+</html>

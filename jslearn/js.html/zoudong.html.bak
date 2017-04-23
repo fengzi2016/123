@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ <body>
+   <img id="image" style="position:absolute;top:40px;left:5px;" src="r.gif"/>
+   <input type="button" value="Æô¶¯" onclick="start()">
+	<input type="button" value="Í£Ö¹" onclick="stop()">
+ </body>
+ <script>
+ var status=-1;
+ function start()
+{	
+	if(status==-1){
+		status=1;
+	setTimeout("move()",t);
+					}
+}
+function stop(){status=-1;}
+var w=160; var t=300; var m=20; var s="r.gif";
+  function move(){
+  var oj=document.getElementById("image");
+  var x= parseInt(oj.style.left);
+  if(s=="r.gif"){x=x+m;}
+  if(s=="l.gif"){x=x-m;}
+  if(x>=w){s="l.gif";oj.src="l.gif";}
+  if(x<=0) {s="r.gif";oj.src="r.gif";}
+	oj.style.left=x+"px";
+	if(status==1)
+	setTimeout("move()",t);
+	
+ }
+	
+  </script>
+</html>

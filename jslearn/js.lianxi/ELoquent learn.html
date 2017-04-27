@@ -1,0 +1,69 @@
+<script type="text/javascript">
+<!-- /*
+ for (var i=1; i<=7;i++) {
+ 		var result="#";
+ 		for(var j=1;j<=i;j++){
+ 			console.log(result);
+ 		}
+ 		console.log("\n");
+
+ 	}*/
+
+ //致命错误，套用C语言算法，错误原因：js中每一次输出，输出一行，不会因为循环在一行内连续输出-->
+
+for (var i = "#" ;i.length<8  ; i=i+"#") {
+	console.log(i);
+	}
+for (var i = 1; i < 101; i++) {
+	if(i%3==0&&i%5==0) console.log("FizzBuzz");
+	else if (i%3==0&&i%5!=0) console.log("Fizz");
+	else if(i%5==0&&i%3!=0) console.log("Buzz");
+	else console.log(i);
+	}
+// for(var n=1; n<=100;n++){
+// var output="";
+// if(n%3==0)
+// output+="Fizz";
+// if(n%5==0)
+// output+="Buzz";
+// console.log(output||n);
+//
+// }
+for (var i = 1; i < 9; i++) {
+	var m="#";var n=" ";var t="";
+	if(i%2!==0){
+
+		for(var j=0;j<4;j++)
+			{	
+				var f=m+n;
+				  t=t+f;
+			}
+			console.log(t);
+			t="";
+	}
+	if(i%2===0){
+		for(var j=0;j<4;j++){
+		var u=n+m;
+		  t=t+u;
+		}
+		 console.log(t);
+		 t="";
+	}
+			
+		
+}
+ //正确结果之一
+ /*var size=8;
+ var board="";
+ for(var y=0;y<size;y++){
+ 	for(var x=0;x<size;x++){
+ 		if((x+y)%2==0)
+ 			board+=" ";
+ 		 else
+ 		 	board+="#";
+ 	}
+ 	board+="\n";
+ }
+ console.log(board);
+*/
+</script>

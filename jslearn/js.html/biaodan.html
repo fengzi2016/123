@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+</head>
+<body>
+<form action="submitpage.htm" outsubmit="return validate_form(this)" method="post">
+Email:<input type="text" name="email" size="30">
+<input type="submit" name="" value="submit">
+
+</form>
+
+</body>
+<script type="text/javascript">
+function validate_required(field,alerttxt)
+{
+	with(field)//with（）语句 用于设置代码在特定对象的作用域，语法with(field){},在花括号内，可以直接用字段名访问field的成员，即若field有value成员则value 将访问到field.value 
+	{
+		if(value==null||value=="")
+			{alert(alerttxt);return false}
+		else{return true}
+	}
+}
+function validate_form(thisform)
+{
+	with(thisform){
+			if(validate_required(email,"Email must be filled out!")==false)
+		{email.focus();return false}
+	}
+
+}
+
+
+</script>
+</html>

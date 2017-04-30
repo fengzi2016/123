@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta charset="utf-8">
+  </head>
+  <body>
+  </body>
+  
+  <script type="text/javascript">
+   function phi(table){
+   	return(table[3]*table[0]-table[2]*table[1])/
+   	Math.sqrt(
+
+   		(table[2]+table[3])*/*table[2]就是二维数组table中 table[1][0];举一反三*/
+   		(table[0]+table[1])*
+   		(table[1]+table[3])*
+   		(table[0]+table[2])
+   		);	
+   }
+   console.log(phi([76,9,4,1]));
+
+   /*function hasEvent(event,entry){
+   	return entry.events.indexOf(event)!=-1;
+   }
+   function tableFor(event,journal){
+   	var table=[0,0,0,0];
+   	for(var i=0;i<journal.length;i++){
+   		var entry =journal[i],index=0;
+   		if(hasEvent(evert,entry))index+=1;
+   		if(entry.squirrel)index+=2;
+   		table[index]+=1;
+   	}
+   	return table;
+   }
+   console.log(tableFor("pizza",JOURNAL));/*JOURNAL没有定义*/
+   console.log([0,1,2,3,4].slice(2,4));
+   /*即数值第3个到第4个，slice函数中的参数，表示抽出的数在数组的位置范围，第一个参数被包含；第二个不被包含，不需要输出*/
+   /*push  pop  slice shift  unshift*/
+   console.log([1,2,3,2,1].indexOf(2));
+   /*从左往右第一次出现2的位置  1*/
+   console.log([1,2,3,2,1].lastIndexOf(2));
+   /*从右往左最后一次出现2个位置  3* /
+   /*数组里 这些方法的参数只能有一个字符，而字符串里参数可以是多个*/
+   console.log("one two three".indexOf("ee"));
+   //11
+   //trim()消除字符串中的 空格，换行符，标签和相同字符）
+   console.log("   okay \n".trim());
+   var string="abc";
+   console.log(string.length);//3
+   console.log(string.charAt(1));//b
+   console.log(string[1]);//b
+   console.log(Math.random());//产生一个大于等于0，小于1的随机数
+   console.log(Math.floor(Math.random()*100));//产生一个大于等于0小于100的并且下舍入的随机整数
+   console.log(Math.floor(25.9))//下舍入为最接近的整数 25
+   console.log(Math.ceil(25.1));//将参数上舍入成最接近的整数 26
+   console.log(Math.round(25.1));//将参数四舍五入为最接近的整数25
+   function range(start,end){
+   	var array=[];
+   	for(var i=start;i<=end;i++){
+   		array.push(start);
+   	    start+=1;
+   	 }
+   	return array;
+   }
+   function sum(array) {
+   	var sum=0;
+ 	for(var i=0;i<array.length;i++){	
+ 	   	sum=sum+array[i];
+   	}
+   	return sum;
+   }
+   console.log(range(1,10));
+   console.log(sum(range(1,10)));
+function range2(start,end,step){
+	var array=[start],result=start;
+	if(step>0){
+		while(result+step<=end){
+		 		result=step+result;
+			 	array.push(result);
+			 	}	
+			return(array);	
+		 }
+	if(step<0){
+		while(result+step>=end){
+		result=step+result;
+		array.push(result);
+		}
+		return(array);
+	 }	
+	
+	else if(step==0) return null;
+	else if(step==null) return range2(start,end,1);
+
+}
+console.log(range2(1,10,2));
+console.log(range2(5,2,-1));
+console.log(range2(1,5));
+function reverse1(array){
+	var array2=[];
+	for(var i=0,j=array.length-1;i<array.length && j>=0;i++,j--)
+		array2[j]=array[i];
+		return array2;
+}
+console.log(reverse1([1,2,3,4]));
+console.log(reverse1(["A","B","C"]));
+/*把最小的作为一个单位，再不断扩大*/
+function arrayToList(array) {
+  var list = null;
+  for (var i = array.length - 1; i >= 0; i--)
+    list = {value: array[i], rest: list};
+  return list;
+}
+
+function listToArray(list) {
+  var array = [];
+  for (var node = list; node; node = node.rest)
+    array.push(node.value);
+  return array;
+}
+
+function prepend(value, list) {
+  return {value: value, rest: list};
+}
+
+function nth(list, n) {
+  if (!list)
+    return undefined;
+  else if (n == 0)
+    return list.value;
+  else
+    return nth(list.rest, n - 1);
+}
+
+console.log(arrayToList([10, 20]));
+// → {value: 10, rest: {value: 20, rest: null}}
+console.log(listToArray(arrayToList([10, 20, 30])));
+// → [10, 20, 30]
+console.log(prepend(10, prepend(20, null)));
+// → {value: 10, rest: {value: 20, rest: null}}
+console.log(nth(arrayToList([10, 20, 30]), 1));
+// → 20
+/*错误？ 没有判断是数字还是对象*/function deepEqual(object1,object2){
+	var object1=object1,object2=object2;
+	for(var i in object1 ){
+      for(var j in object2)
+	    {
+		if(i==j&&object1[i]==object2[j])
+			return true;
+		else return false;
+        }
+	}
+}
+console.log(deepEqual(1,2));
+function deepEqual2(a,b){
+	if(a===b)return true;
+	if(a==null||typeof a!="object"||
+		b==null||typeof b!="object")
+		return false;
+	var propsInA=0,propsInB=0;
+	for(var prop in a )
+		propsInA+=1;
+	for(var prop in b ){
+		propsInB+=1;
+		if(!(prop in a) ||!deepEqual2(a[prop],b[prop]))
+			return false;
+	}
+	return propsInA==propsInB;
+}
+var obj={here:{is:"an"},object:2}
+console.log(deepEqual2(obj,obj));
+/*function deepEqual(object1,object2){
+	var s=object1,k=object2;
+    var array1=[],array2=[],array3=[],array4=[];
+	for(var i in s)
+	{
+      array1.push(i);
+      array2.push(s[i]);
+	}
+   for(var j in k){
+     array3.push(j);
+     array4.push(k[j]);
+   }
+  if(array1==array3&&array2==array4)
+    return true;
+  else return false;
+}
+console.log(deepEqual(1,1));
+console.log(deepEqual({name:"guan",age:18},{name:"guan",age:18}));*/
+  </script>
+  </html>

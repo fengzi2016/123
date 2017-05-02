@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta charset="utf-8">
+  </head>
+  <body>
+  </body>
+  
+  <script type="text/javascript">
+  function logEach(array){
+  	for(var i=1;i<array.length;i++)
+  		console.log(array[i]);
+  }//直接在for循环内循环输出
+  function forEach(array,action) {
+  	 for(var i=0;i<array.length;i++)
+  	 	action(array[i]);
+  }/*把一个内置函数作为参数*/
+  forEach(["guan","yun","feng"],console.log);
+  var numbers=[1,2,3,4,5],sum=0;
+  forEach(numbers,function(number){
+  	sum+=number;
+  });
+  /*把一个自定义函数作为参数*/
+  console.log(sum);
+  function greaterThan(n){
+  	return function(m){return m>n};
+  }
+  var greaterThan10=greaterThan(10);
+  console.log(greaterThan10(11));
+  /*10->n,11->m*/
+  function noisy(f){
+  	return function(arg){
+  		console.log("call with",arg);
+  		var val=f(arg);
+  		console.log("call with",arg,"-got",val);
+  		return val;
+  	};
+  }
+  noisy(Boolean)(1);
+  function unless(test,then){
+  	if(test) then();
+  }
+  function repeat(times,body){
+  	for(var i=0;i<times;i++) body(i);
+  }
+  repeat(4,function(n){
+    	unless(n%2,function(){
+    		console.log(n,"is odd");
+  	});
+  });
+  function filter(array,test){
+  	var passed=[];
+  	for(var i=0;i<array.length;i++){
+  		if(test(array[i])) passed.push(array[i]);
+  	}
+  	return passed;
+  }
+  console.log(filter([1,2,3,4,5],function(person){
+  	return person>3;
+  }));
+
+/*以下函数出现错误：filter方法未找到*/
+   /*function map(array,transform){
+   	var mapped=[];
+   	for(var i=0;i<array.length;i++)
+   		mapped.push(transform(array[i]));
+   	return mapped;
+   }
+   var overNinety=ancestry.filter(function(person){
+   	return person.died-person.born>90;
+   });
+   console.log(map(overNinety,function(person){
+   	return person.name;
+}));
+   var ancestry=[{"name":"A","sex":"f","born":1876,"died":1956,"father":"B","mother":"C"},{"name":"E","sex":"m","born":"1832","died":1905,"father":"M","mother":"F"}];*/
+   function reduce(array,combine,start){
+   	var current= start;
+   	for(var i=0;i<array.length;i++)
+   	current=combine(current,array[i]);
+   return current;
+   }
+   console.log(reduce([1,2,3,4],function(a,b){
+   	return a+b;
+   },0));
+function map(array,transform){
+   	var mapped=[];
+   	for(var i=0;i<array.length;i++)
+   		mapped.push(transform(array[i]));
+   	return mapped;
+   }
+    /*console.log(map(overNinety,function(person){
+   	return person.name;*/
+   	/*Arrays provide a number of useful higher-order methods—forEach to do something with each element in an array, filter to build a new array with some elements ﬁltered out, map to build a new array where each element has been put through a function, and reduce to combine all an array’s elements into a single value. 
+   	*/
+  function flattening(array,combine){
+   	 var array1=[];
+   	  for(var i=0;i<array.length;i++)
+   	 	array1=combine(array1,array[i]);
+   	 	return array1;		
+   }
+   console.log(flattening([[1,2,3],[4,5],[6]],function(a,b){
+   	var array2=a.concat(b);return array2;}));
+   /*错误：concat方法没定义*/
+   var arrays = [[1, 2, 3], [4, 5], [6]];
+
+	console.log(arrays.reduce(function(flat, current) {
+  return flat.concat(current);
+}, []));
+   /*function average(array){
+   	function plus(a,b){return a+b;}
+   	return array.reduce(plus)/array.length;
+   }
+   var byName={};
+   ancestry.forEach(function(person)){
+   	byName[person.name]=person;
+   });
+	var differences=ancestry.filter(function(person){
+		return byName[person.mother]!=null;
+	}).map(function(person){
+		return person.born-byName[person.mother].born;
+	})
+	console.log(average(differences));*/
+
+  </script>
+  </html>

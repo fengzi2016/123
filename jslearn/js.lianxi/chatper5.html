@@ -121,6 +121,29 @@ function map(array,transform){
 		return person.born-byName[person.mother].born;
 	})
 	console.log(average(differences));*/
-
+  function average(array){
+    function plus(a,b){return a+b;}
+    return array.reduce(plus)/array.length;
+  }
+/*function groupBy(array,groupOf){
+  var groups={};创建object
+  array.forEach(function(element){遍历array里的元素
+    var groupName=groupOf(element);
+    if(groupName in groups)
+      groups[groupName].push(element);如果属性已经存在，则添加到该属性内作为值
+    else
+      groups[groupName]=[element];如果属性不存在，则将它定义为一个属性
+  });
+  return groups;
+}
+var byCentury=groupBy(ancestry,function(person){
+  return Math.ceil(person.died/100); math.ceil 四舍五入
+});
+for(var century in byCentury)
+ var ages=byCentury[century].map(function(person){
+  return person.died-person.born;
+ });
+console.log(century+":"+average(ages));
+}*/
   </script>
   </html>

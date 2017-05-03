@@ -145,5 +145,71 @@ for(var century in byCentury)
  });
 console.log(century+":"+average(ages));
 }*/
+
+
+
+//①
+console.log(every([NaN, NaN, NaN], isNaN));
+// → true
+console.log(every([NaN, NaN, 4], isNaN));
+// → false
+console.log(some([NaN, 3, 4], isNaN));
+// → true
+console.log(some([2, 3, 4], isNaN));
+// → false
+function every(array, predicate) {
+  for (var i = 0; i < array.length; i++) {
+    if (!predicate(array[i]))
+      return false;
+  }
+  return true;
+}
+
+function some(array, predicate) {
+  for (var i = 0; i < array.length; i++) {
+    if (predicate(array[i]))
+      return true;
+  }
+  return false;
+}
+
+
+
+//②
+function every(array,judge){
+	for(var number in array){
+		if(!judge(number))
+			return false;
+	}
+		 return true;
+	}
+function some(array,judge){
+	for(var number in array)
+		if(judge(number))
+			return true;
+	}
+		return false;
+}
+//③
+function every(array, predicate) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].predicate!==false)//if(!array[i].predicate)||if(array[i].predicate==null)
+      return false;
+  }
+  return true;
+}
+
+function some(array, predicate) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].predicate===true)//if(array[i].predicate)
+      return true;
+  }
+  return false;
+}
+
+/*①②③的区别是什么？？？？？？*/
+
+}
+
   </script>
   </html>

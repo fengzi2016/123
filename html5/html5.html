@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+编码
+<meta charset="utf-8">
+<!--指定HTTP Header
+<meta http-equiv="Content-Security-Policy" content="script-src'self'">
+SEO 搜索引擎优化
+<meta name="keywords" content="关键词">
+<meta name= "description" content="页面介绍">
+移动设备Viewport
+<meta name="viewport" content="initial-scale=1">
+关闭Ios电话号码自动识别
+<meta name="format-detection" content="telphone=no">
+360浏览器制定内核
+<meta name="renderer" content="webkit">
+制定ie渲染模式
+<meta http-equiv="X-UA-Compatible" content="IE="> -->
+<head>
+	<title></title>
+</head>
+<body>
+<dt>导演:</dt>
+<dd>冯小刚</dd>
+<blockquote cite="#">长段落、块级引用</blockquote>
+<cite>表示来源：书名，电影等</cite>
+<br>
+<q>短内容引用</q>
+<pre>可以保留文本内的空   格和
+换行</pre>
+<code>使代码里关键字展示出来如const</code>
+<var>表示代码中的变量如 var</var>
+<br>
+<kbd>需要用户操作键盘 如按下F12</kbd>
+<br>
+<samp>表示结果和输出或例子</samp>
+<pre><code>
+const add=(a,b)=>a+b;
+</code></pre>
+<figure>
+	<img src="#">
+	<figcaption>表示图表</figcaption>
+</figure>
+<figure>
+	<figcaption>包含代码</figcaption>
+	<pre><code>
+	const add=(a,b)=>a+b;
+	</code>
+	</pre>
+</figure>
+<pre>
+header 
+nav
+main        aside
+  article
+  article
+footer
+(section)分区域
+</pre>
+<strong>重要性、严重性、紧急性</strong>
+<em>从一句话中突出某个词语</em>
+<b>将词语从视觉和其它部分区分，比如一篇论文摘要中的关键词</b>
+<i>换一种语调去说一句话时，比如其他语言翻译，对话中的旁白</i>
+<p><dfn>定义</dfn></p>
+<p><abbr>缩写如：HTML</abbr></p>
+<mark>和用户当前行为相关的突出如搜索结果中匹配到的词或一部分内容需要在后面引用时
+</mark>
+<ins>插入</ins>
+<del>删除</del>
+12345687978 <wbr>页面不够长的并且需要换行的<wbr> 时候会换行<wbr> 456879797
+<p><a href="#test">页面内部链接</a></p>
+<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+</ul>
+<p id="test">上面的链接到这</p>
+<p><a href="#">＃后面没写就链接到顶部</a></p>
+<p><a href="#test" target="self">target 打开方式 </a></p>
+<table border="1">
+	<colgroup><!-- 批量定义class -->
+		<col class="1" style="background: red;"> <!-- 第一列的class -->
+		<col class="2" style="background: green;"> <!-- 第二列的class -->
+		<col class="3" style="background: blue;"><!-- 第三列的class -->
+	</colgroup>
+	<thead>
+		<tr>
+			<th>年级</th>
+			<th>性别</th>
+			<th>姓名</th>
+		</tr>	
+	</thead>
+	<tbody>
+		<tr>
+			<th>一</th>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<th>二</th>
+			<td>2</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<th>三</th>
+			<td>3</td>
+			<td>3</td>
+		</tr>
+	</tbody>
+</table>
+<input type="test" name="username" placeholder="提醒的" autofocus>
+<textarea rows="5" col="5">5行5列</textarea>
+<form>
+	<p>
+		<input required minlength="2" maxlength="10" placeholder="required必填，max-minlength为限制范围">
+	</p>
+		<input pattern="1\d{10}" placeholder="正则表达式验证">
+	<p>
+		<button type="submit">我记住了</button>
+	</p>
+</form>
+<form>
+	<p>
+		search:<input type="search" name="">
+	</p>
+	<p>	
+		email:<input type="email" name="">
+	</p>
+	<p>
+		url:<input type="url" name="">
+	</p>
+	<button type="submit">我记住了</button>
+</form>
+<form>
+	<p>你最喜欢谁</p>
+	<p><!-- 关联有2种方法 -->
+		<input type="checkbox" name="father" value="父亲" id="fuqing">
+		<label for="fuqing">父亲</label>
+		<label>
+				<input type="checkbox" name="mother" value="母亲">母亲
+		</label>
+		<label>
+			<input type="checkbox" name="brother" value="哥哥">哥哥
+		</label>
+	</p>
+	<p><button>label和input关联</button></p>
+	<input type="hidden" name="secret" value="haha">
+</form>
+<label>目的城市:</label>
+	<select name="city">
+	<optgroup label="江西">
+		<option>吉安</option>
+		<option>南昌</option>
+		<option>景德镇</option>
+	</optgroup>
+	<optgroup label="湖北">
+		<option>武汉</option>
+		<option>咸宁</option>
+		<option>宜昌</option>
+	</optgroup>
+	</select>
+	<form action="" method="" enctype="multipart/form-data">
+		<p>
+			<label>姓名</label>
+			<input  name="fullname">
+		</p>
+		<p>
+		<label>请选择简历</label>
+		<input type="file" name="resume" > <!-- multiple accept=""控制可以选择文件的种类 -->
+		</p>
+		<p><button>提交</button></p>
+	</form>
+	<form>
+		<p>date:<input type="date" name=""></p>
+		<p>datetime-local:<input type="datetime-local" name=""></p>
+		<p>month:<input type="month" name=""></p>
+		<p>week:<input type="week" name=""></p>
+		<p>time:<input type="time" name=""></p>
+		<p>
+			<label>身高(m):</label>
+			<input type="number" min="0.5" max="2.5" step="0.01" name="height" value="1.7">
+		</p>
+		<p>
+			<label>体重(kg):</label>
+			<input type="range" name="weight" min="10" max="150" step="0.1" value="60">
+			<output for="weight"></output>
+		</p>
+		<p>
+			<label>BMI:</label>
+			<output for="weight height"></output>
+			<!-- 通过for输出Input的值 -->
+		</p>
+		<p><input type="color" name=""></p>
+		<button onclick="alert(1)">按回车提交</button>
+	</form>
+	<P>
+		<input accesskey="i" placeholder="Press Ctrl+Alt+I">
+	</P>
+	<p>
+		<a href="" accesskey="e" tabindex="-1">Press<kbd>Ctrl+Alt+E </kbd>
+		</a>
+	</p>
+	<section contenteditable spellcheck="ture">
+		我的内容可以被修改啊
+		我是信息管理学院的
+		江西吉安的欸 
+		由contenteditable控制 默认为ture
+    </section>
+    <div lang="zh-CN">
+		<p>字体排版学的英文<span lang="en">Typography</span>来自中午<span lang="ch">翻译成中文</span>
+		</p>
+		<p dir="rtl">从右边到左边</p>
+		<p><abbr title="我是学生">I am student</abbr></p>
+		<p hidden> 我是隐形人，一般用display=none</p>
+     </div>
+    <!--  内容数据格式化 -->
+     <section iteamscope itemtype="http://schema.org/Person">my name is 
+		<span itemprop="name">guan</span>
+		I am a
+		<span itemprop="job">student</span>
+		at the
+		<span itemprop="location">CCNU</span>
+		my friend call me
+		<span itemprop="additionalName">laoguan</span>
+		you can visit myhomepage at
+		<a href="xx" itemprop="url">xx.com</a>
+		<section itemprop="address" itemtype="http://schema.org/PostalAddress">
+			I live at
+			<span itemprop="now">WuHan</span>
+			<span itemprop="before">JiangXi</span>
+			<span itemprop="after">shenzheng</span>
+		</section>
+     </section>
+</body>
+</html>

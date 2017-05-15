@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title></title>
+	<style type="text/css">
+	/*属性选择器*/
+		input[disabled]{
+			background: red;
+		}/*[for~="height"]*/
+		input[type="password"]{
+			border-color: green;
+
+		}
+		a[href^="#"]{/*以#开头的链接*/
+			color: red;
+		}
+		a[href$=".jpg"]{}/*以.jpg结尾
+			[class*="icon-"]表示只要有icon-就行*/
+		h1.warning{
+			color: orange;
+		}
+		section h2{
+			color: blue;
+		}
+		/*选择器组合
+		     直接组合EF
+		     后代组合E F  
+		     		亲子选择器 E>F
+		     一组选择器 E,F
+		     */
+	</style>
+
+</head>
+<body>
+
+<P>
+	<label>用户名</label>
+	<input type="text" name="username" value="zhao" disabled> 
+	<label>密码</label>
+	<input type="password" name="" required>
+	<p><a href="#top">回到顶部</p>
+	<p><a href="a.jpg" alert="something"></a></p>
+	<h1 class="warning">满足</h1>
+	<div class="warning icon">不满足</div>
+	<section>
+		<h2>加油学</h2>
+	</section>
+</P>
+
+</body>
+</html>
+

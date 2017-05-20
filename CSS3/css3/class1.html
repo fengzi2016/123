@@ -4,7 +4,13 @@
 <head>
 	<title></title>
 	<style type="text/css">
-	/*属性选择器*/
+	/*属性选择器*/ 
+	/*选择器组合
+		     直接组合EF
+		     后代组合E F  
+		     		亲子选择器 E>F
+		     一组选择器 E,F
+		     */
 		input[disabled]{
 			background: red;
 		}/*[for~="height"]*/
@@ -23,12 +29,158 @@
 		section h2{
 			color: blue;
 		}
-		/*选择器组合
-		     直接组合EF
-		     后代组合E F  
-		     		亲子选择器 E>F
-		     一组选择器 E,F
-		     */
+		/*利用本地以及网络字体*/
+		
+		    @font-face{
+		    	font-family: 'Lobster';
+		    	font-style: normal;
+		    	font-weight: 400;
+		    	src:
+		    		/*英文*/
+		    		 local('Lobster'),
+		    		local('Lobster-Regular');
+		    		url(//lib.baomitu.com/fonts/lobster/-lobster-v18-latin-regular.woff2)
+		    		format('woff2');
+		    		url(//lib.baomitu.com/fonts/lobster/lobster-v18-latin-regular.woff)
+		    		format('woff');
+		    	
+		    }
+		    			  /*中文*/@font-face{
+		    			  	font-family:'fzjljw';
+		    			  	font-style: normal;
+		    				font-weight: 400;
+		    				src:
+		    			  		local('fzjljw'),
+		    			  		url(http://s6.qhres.com/static/0c7c8a048bccb02f.woff)format('woff');
+		    
+		    			  }
+		    .ziti{
+		    	font-family: 'Lobster',cursive;		 
+		    	}
+		    .chinese_ziti{
+		    	font-family: 'fzjljw',cursive;
+		    } 
+		    /*div不包含浮动元素的高度*/
+		    /*项目内清除浮动，加一个class=clearfix
+		    以下是给浮动元素后面加一个没有内容的div，还可以在
+		    后面的元素的前面加一个没有元素的div*/
+		    .clearfix::after{
+		    	content: ' ';
+		    	display: block;
+		    	clear: both;
+		    	height: 0;
+		    	overflow: hidden;
+		    }
+		    /*还可以用BFC
+		    可以通过非浮动元素=>overflower:hidden|| inline-block 创建*/
+		    .btn{
+		    	display: inline-block;
+		    	padding: .36em .8em;
+		    	margin-left: 5em;
+		    	line-height: 1.5;
+		    	text-align: center;
+		    	cursor:pointer;
+		    	border-radius:.3em;
+		    	background: #e6e6e6;
+		    	color:#333;
+		    }
+		    .btn.btn-primary{
+		    	color:#fff;
+		    	background-color:rgba(255,0,255,1);
+		    }
+		    .css5{
+		    	color:#f00;
+		    	color:rgba(0,0,0,0.5);/*颜色 a表示透明度*/
+		    	transition-duration:0.3s;/*时间*/
+		    	transform:rorateX(deg);/*角度*/
+		    	content:attr(title);/*函数*/
+		    	height: calc(100vh-100px);
+		    }
+		    /*相对单位：
+		    em：相对于该元素的一个font-size
+			rem:相对于html元素的font-size;
+			vh:浏览器窗口高度的1%;
+			vw:浏览器窗口宽度的1%;
+			vmin:vh和vw中的较小值;
+			vmax:vh和vw中的较大值;
+		    */
+		   .baohedu{
+		   	color:hsl(0,50%,50%);
+		   }
+		   .touming{
+		   	color:hsla(120,50%,50%,50%);
+		   }
+		   .yihan{
+		   	margin-bottom:100px;
+		   	background: lightblue;
+		   	height: 100px;
+		   }
+		   .second{
+		   	margin-top: 100px;
+		   	background: yellow;
+		   	height: 100px;
+		   }
+		   .box{
+		   	width:200px;
+		   	height:200px;
+		   	padding:10px;
+		   	border:10px solid #f66;
+		   	background: #f99;
+		   	margin:1em;
+		   }
+		  .B{
+		  	box-sizing:border-box; 
+		  }
+		.haowan{
+			border-width: 50px;
+			border-style: solid;
+			border-color:#f35 #269 #649 #fa0;
+			width: 200px;
+			height: 200px;
+			transition: all 2s ease-in;
+			margin:1em auto;
+		}
+		.kuai{
+			line-height: 2;
+			padding: 1em;
+			border: 2px solid #00f;
+			background: #ccf;
+		}
+		.hang{
+			background: #fcc;
+			border: 2px solid #f00;
+		}
+		.shem::before{
+			content: '\2693';
+		}
+		.shem::after{
+			content: '('attr(href)')';
+		}
+		[class^="box-"]{
+			position: absolute;
+			width: 200px;
+			line-height: 200px;
+			text-align: center;
+			color: #fff;
+		}
+		.box-a{
+			background: #F44336;
+			top:50px;
+			left: 50px;
+		}
+		.box-b{
+			top: 100px;
+			left: 100px;
+			z-index: -1;
+			background: #0097A7;
+		}
+		.box-c{
+			top: 200px;
+			left: 200px;
+			z-index: 1;
+			background: #4CAF50;
+
+		}
 	</style>
 
 </head>
@@ -45,7 +197,33 @@
 	<div class="warning icon">不满足</div>
 	<section>
 		<h2>加油学</h2>
+		<h2><dt>通用字体族：</dt></h2>
+			<dd>Serif(衬线体)：宋体</dd>
+			<dd>sans-Serif(无衬线体)：arial,helvetica,黑体,微软雅黑</dd>
+			<dd>Cursive(手写体)：caflisch,楷体</dd>
+			<dd>(Fantasy) 梦幻字体</dd>
+			<dd>（Monospace） 等宽字体:consolas,courier,中文字体</dd>
+			<h2><dt>font-family的使用</dt></h2>
+			<dd>英文字体放在中文字体前面</dd>
+			<dd>最后总是添加通用字体族</dd>
 	</section>
+	<div class="ziti">I love css5 is there anything wrong?
+	</div>
+	<h1><div class="chinese_ziti">中文用网络字体啊</div></h1>
+	<button class=".btn">通用按钮</button>
+	<button class="btn btn-primary">主要按钮</button>
+	<button class="baohedu">百分之50的饱和度和百分之50的亮度</button>
+	<button class="touming">我比上面还带50%透明度</button>
+	<div class="yihan">我下面是100的间距 </div>
+	<div class="second">我上面也是100的间距,所以重叠啦</div>
+	<div class="box A">我是A，我的内容是200，不包含内外边距</div>
+	<div class="box B">我是B,我的总体是200，包含内外边距</div>
+	<div class="haowan"></div>
+	<p class="kuai"><span class="hang">块级元素和行级元素的区别，p是块级元素，span是行级元素，仔细看我们的区别哦~，-----不要小瞧任何人，勤能补拙，加油加油啊。。。。。。。我只是想拼成2行咯，可以用display:inline||inline-block 来把块级变成行级元素 </span></p>
+	<a class="shem" href="http://example.com">访问链接</a>
+	<div class="box-a">A盒子</div>
+	<div class="box-b">B盒子</div>
+	<div class="box-c">C盒子</div>
 </P>
 
 </body>

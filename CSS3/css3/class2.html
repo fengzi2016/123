@@ -44,6 +44,71 @@
  	border: 1px solid #ccc;
  	box-shadow: 1px 1px 5px rgba(0,0,0,0.3)
  }
+ 	main{
+ 		font-size:14px;
+ 		padding-left: 10em;
+ 		overflow: hidden;
+ 	}
+ 	article{
+ 		float: left;
+ 		width: 100%;
+ 		background: coral;
+ 		padding-bottom: 10em;
+ 		margin-bottom: -10em;
+ 	}
+aside{
+	width: 10em;
+	float: left;
+	margin-left: -10em;
+	position: relative;
+	left: -100%;
+	padding-bottom: 10em;
+	margin-bottom: -10em;
+	background-color: green;
+}
+nav{
+	width: 100%;
+	display: table;
+	border-collapse: collapse;
+	font-size: 14px;
+	line-height: 3;
+}
+nav a{
+	display: table-cell;
+	text-align: center;
+	border:1px solid #fff;
+	text-decoration: none;
+	color:rgba(255,255,255,0.8);
+	background: hsl(181,58%,52%);
+}
+nav a:hover{
+	color: #fff;
+	background: hsl(181,58%,45%);
+}
+ul{
+	display: flex;
+	/*flex-direction 控制方向*/
+	/*flex-wrap 能否以及折行方向*/
+	/*justify-content 在主轴方向中如何摆放*/
+	/*align-items在侧轴方向的对齐方式*/
+	padding: 0;
+	background: lightgray;
+}
+li{
+	list-style: none;
+	padding: 1em;
+	background: lightblue;
+}
+.item1{
+	background:rgb(255,0,0);
+	flex-grow:2;/*弹性指数，扩展能力*/
+	flex-shrink: 2;/*收缩能力*/
+}
+.item2{
+	background: rgb(0,255,0);
+	flex-grow: 1
+}
+
 
 </style>
 <body>
@@ -56,7 +121,32 @@
 		<button>确定</button>
 	</div>
 </div>
+<main>
+	<article>
+		my name is what ,what do i want ,if i were you ,am i a giss ,what do you want to do ,if  i am a good man,
+		a ha ,it is a shit .sjklgo jwekuig jifoawufi fdaoifoa jldafjkl jadfjioiw jljwleogjdkfah jfkdafiodj w jdfaljiaoipw k;lmvjajf is jdlfjkagal w faogpuio 
+	</article>
+	<aside>伪等高</aside>
+</main>
+<h1> i am guan yun feng</h1>
+<nav>
+	<a href="#">Home</a>
+	<a href="#">HTML</a>
+	<a href="#">CSS</a>
+	<a href="#">JavaScript</a>
+	<a href="#">HTTP</a>
+</nav>
+<ul class="s">
+	<li class="item1">Item 1</li>
+	<li class="item2">Item 2</li>
+	<li class="item3">Item 3</li>
+</ul>
 
-</div>
+
+
+
+
+
+
 </body>
 </html>

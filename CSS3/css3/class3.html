@@ -76,11 +76,11 @@ p{
 	background: lightblue;
 }
 .container-3d{
-	perspective:10em;
+	perspective:10em;/*引入3D效果*/
 }
 .box
 {
-	transition:all 2s ease-in;
+	transition:all 2s ease-in;/*ease linear ease-in ease-out ease-in-out */
 	width: 200px;
 	height: 200px;
 	margin: 1em auto;
@@ -94,6 +94,41 @@ p{
 .box:hover{
 	width: 0;
 	height: 0;
+}
+.box-3{
+	height: 100px;
+	width: 100px;
+	background: red;
+	transition: width 1s ease 1s,
+	height 1s ease;
+}
+.box-3:hover{
+	width: 200px;
+	height: 200px;
+}
+@keyframes down{
+	/*animation 定义关键帧*/
+	from{/*初始值*/
+		margin-top: 0；
+		opacity:1;/*透明度*/
+	}
+	50%{
+		margin-top: 0.5em;
+		opacity: 0.3;	
+	}
+	to{
+		margin-top: 0;
+		opacity: 1;
+	}
+}
+.scroll-down{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -0.5em;
+	font: normal normal 48px/1 Helvetica;
+	color: #f66;
+	animation: down 1.5s ease infinite/*循环*/;
 }
 </style>
 <body>
@@ -117,6 +152,8 @@ p{
 <div class="container-3d"><p>3D transform</p></div>
 </div>
 <div class="box">1</div>
+<div class="box-3">3</div>
+<i class="scroll-down">↓</i>
 </body>
 </html>
 

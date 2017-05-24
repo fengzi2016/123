@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+.box{
+	position: relative;
+	height: 200px;
+	width: 200px;
+	margin: 20px 0 0 80px;
+}
+.box .leaf{
+	position: absolute;
+}
+.leaf{
+	margin-top: 200px;
+	width: 150px;
+	height: 150px;
+	border-radius: 150px 0px;
+	background:linear-gradient(45deg,
+		rgba(188,190,192,1) 8%,
+		rgba(158,31,99,1) 30%,
+		rgba(158,31,99,1) 100%
+		);
+	opacity: 0.5;
+	transform: rotate(45deg);
+	transform-origin: top right;
+}
+.leaf.x2{
+	animation: show-2 5s ease-in-out 1;
+}
+.leaf.x3{
+	animation: show-3 5s ease-in-out 1;
+}
+.leaf.x4{
+	animation: show-4 5s ease-in-out 1;
+}
+.leaf.x5{
+	animation: show-5 5s ease-in-out 1;
+}
+.leaf.x6{
+	animation: show-6 5s ease-in-out 1;
+}
+.leaf.x7{
+	animation: show-7 5s ease-in-out 1;
+}
+.leaf.x8{
+	animation: show-8 5s ease-in-out 1;
+}
+.box .leaf{
+	animation-fill-mode: forwards;
+}
+@keyframes show-2{
+	0%{
+		transform: rotate(45deg);
+	}
+	100%{
+		transform: rotate(71deg);
+	}
+}
+@keyframes show-3{
+	0%{
+		transform: rotate(45deg);
+	}
+	100%{
+		transform: rotate(96deg);
+	}
+}
+@keyframes show-4{
+	0%{
+		transform: rotate(45deg);
+	}
+	100%{
+		transform: rotate(123deg);
+	}
+}
+@keyframes show-5{
+	0%{
+		transform: rotate(45deg);
+	}
+	100%{
+		transform: rotate(150deg);
+	}
+}
+@keyframes show-6{
+	0%{
+		transform: rotate(45deg);
+	}
+	100%{
+		transform: rotate(175deg);
+	}
+}
+@keyframes show-7{
+	0%{
+		transform: rotate(45deg);
+	}
+	100%{
+		transform: rotate(200deg);
+	}
+}
+@keyframes show-8{
+	0%{
+		transform: rotate(45deg);
+	}
+	100%{
+		transform: rotate(225deg);
+	}
+}
+</style>
+<body>
+<div class="box">
+	<div class="leaf x1"></div>
+	<div class="leaf x2"></div>
+	<div class="leaf x3"></div>
+	<div class="leaf x4"></div>
+	<div class="leaf x5"></div>
+	<div class="leaf x6"></div>
+	<div class="leaf x7"></div>
+	<div class="leaf x8"></div>
+</div>
+</body>
+</html>

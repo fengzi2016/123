@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  name="viewport"	content="width=device-width,initial-scale=1.0">
+	<title></title>
+</head>
+<style type="text/css">
+body{
+	margin: 0;
+}
+#baochi{/*保持高宽比2：1*/
+	height: 0;
+	padding-top: 50%;
+	background:#f99;
+}
+form{
+	margin-right: 4em;
+	position: relative;
+}
+form input{
+	width: 100%;
+	font-size: inherit;
+	line-height: 1.4;
+}
+form button{
+	position: absolute;
+	left: 100%;
+	top: 0;
+	width: 4em;
+	font-size:inherit;
+}
+/*导航栏的竖线
+nav a:not(:first-child){
+	border-left:1px solid rgba(255,255,255,0.7);
+};
+media query 针对不同屏幕，应用不同的样式
+*/
+ul{
+	margin:0;
+	padding: 0;
+	text-align: justify;
+}
+li{
+	display: inline-block;
+	width: 30%;
+	height: 0;
+	padding-top: 20%;
+	background: lightblue;
+	text-align: center;
+	margin-bottom: 1em;
+}
+nav{
+	display: flex;
+	width: 100%;
+	background: #00BCD4;
+}
+nav a{
+	flex: 1;
+	text-decoration: none;
+	color:#fff;
+	padding: 0 1em;
+	font: normal 14px/2 Helvetica;
+}
+nav a:not(:first-child){
+	border-left: 1px solid rgba(255,255,255,0.7);
+}
+@media screen and(max-width: 480px){
+	nav{
+		flex-direction: column;
+	}
+	nav a:not(:first-child){
+		border-left: none;
+		border-top: 1px solid rgba(255,255,255,0.7);
+	}
+}
+</style>
+<body>
+<nav>
+	<a href="#">Home</a>
+	<a href="#">JavaScript</a>
+	<a href="#">HTML</a>
+	<a href="#">CSS</a>
+	<a href="#">HTTP</a>
+</nav>
+<div id="baochi"></div>
+<form>
+	<input type="search">
+	<button>搜索</button>
+</form>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+	<li>7</li>
+	<li>8</li>
+	<li>9</li>
+	<li>9</li>
+</ul>
+
+
+</body>
+</html>

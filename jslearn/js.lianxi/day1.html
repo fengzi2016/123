@@ -7,7 +7,6 @@
 
 </body>
 <script type="text/javascript">
-
 /*封装*/
 //单例模式
 var obj={
@@ -26,7 +25,7 @@ var obj={
 		console.log(sum(1,2));
 	}
 }
-var main()={
+var main={
 	init:function(){
 		this.changeName();
 	},
@@ -58,6 +57,74 @@ function self(name,age,sex){
 }
 var mine=self("sam",22,"man");
 console.log(mine.job);
+/*构造函数*/
+function Person(){
+	this.eat="food";
+	this.sleep="night";
+	this.say=function(){
+		console.log("I am person,I can speak");
+	}
+}
+var person1=new Person();
+person1.say();
+/*继承*/
+/*原型继承*/
+function A(){
+	this.name="A";
+	this.sayHi=function(){
+		console.log("Hi!I am A");
+	}
+}
+function B(){
+	this.name="B";
+	this.age=22;
+	this.sayHi=function(){
+		console.log("Hi,I am B");
+	}
+}
+B.prototype.work = function() {
+	 console.log("I can play");
+};
+A.prototype=new B();
+A.prototype.constructor=A;
+var a=new A();
+console.log(a);
+/*call()方法和apply()方法
+call()方法：让调用对象执行，如何第一个参数是谁，调用对象地this就改变指向是谁，后边跟着参数，依次对应传入
+apply()方法：让调用对象执行，然后第一个参数是谁，调用对象地this就改变指向是谁，后边跟参数，以数组地形式传入
+*/
+/*冒充对象继承*/
+function A(){
+	this.x=100;
+}
+A.prototype.getX=function(){
+	console.log(this.x);
+}
+function B(){
+	var temp=new A();
+	for(var key in temp){
+		this[key]=temp[key];
+	}
+}
+var b=new B();
+console.log(b);
+/*多态*/
+function simPoly(){
+	if(arguments.length==1){
+		return function(){
+			console.log(1);
+		}
+	}
+	if(arguments.length==2){
+		return function(){
+			console.log(2);
+		}
+	}
+}
+simPoly(1,2)();
+
+
+
 
 
 function Vector(x,y){
@@ -77,6 +144,9 @@ function Grid(width,height){
 }
 Grid.prototype.isInside=function(vector){
 	return vector.x>=0&&vector.x<this.width&&vector.y>=0&&vector.y<this.height;
+}
+Grid.prototype.get=function(vector){
+	return this.space[vector.x+this.width*vector.y];
 }
 Grid.prototype.set=function(vector,value){
 	this.space[vector.x+this.width*vector.y]=value;
@@ -145,7 +215,7 @@ var test={
 	addPropTo:function(array){
 		return array.map(function(elt){
 			return this.prop+elt;
-		}.bind(this));/*如果没有band this.prop无法访问到*/
+		}.bind(this));//如果没有band this.prop无法访问到
 	}
 };
 console.log(test.addPropTo([5]));
@@ -186,13 +256,36 @@ World.prototype.letAct=function(critter,vector){
 		}
 	}
 };
-World.prototype.checkDestination=function(action,vection){
+World.prototype.checkDestination=function(action,vector){
 	if(directions.hasOwnProperty(action.direction)){
 		var dest=vector.plus(directions[action.direction]);
 		if(this.grid.isInside(dest))
 			return dest;
 	}
+};
+function View(world,vector){
+	this.world=world;
+	this.vector=vector;
 }
+View.prototype.look=function(dir){
+	var target=this.vector.plus(directions[dir]);
+	if(this.world.grid.isInside(target))
+		return charFromElement(this.world.grid.get(target));
+	else
+		return "#";
+};
+View.prototype.findAll=function(ch){
+	var found=[];
+	for(var dir in directions)
+		if(this.look(dir)==ch)
+			found.push(dir);
+		return found;
+}
+View.prototype.find=function(ch){
+	var found=this.findAll(ch);
+	if(found.length==0) return null;
+	return randomElement(found);
+};
 </script>
 </html>
 

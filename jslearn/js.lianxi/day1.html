@@ -7,6 +7,59 @@
 
 </body>
 <script type="text/javascript">
+
+/*封装*/
+//单例模式
+var obj={
+	name:"sam",
+	age:12,
+	method:function(){
+		var objName=this.name;
+		return objName;
+	},
+	ale:function(){
+		var that=this;
+		function sum(num1,num2){
+			this.num=that.age;
+			return num1+this.num+num2;
+		}
+		console.log(sum(1,2));
+	}
+}
+var main()={
+	init:function(){
+		this.changeName();
+	},
+	changeName:function(){
+		var that=this;
+		var oBody=document.body;
+		oBody.onclick=function(){
+			that.changeValue();
+		}
+	},
+	changeValue:function(){
+		document.getElementById('one').value="sam";
+	}
+}
+main.init();
+//工厂模式
+function self(name,age,sex){
+	var person={};
+	person.name=name;
+	person.age=age;
+	person.sex=sex;
+	if(sex=="man"){
+		person.job="coder";
+	}
+	if(sex=="woman"){
+		person.job="beatiful";
+	}
+	return person;
+}
+var mine=self("sam",22,"man");
+console.log(mine.job);
+
+
 function Vector(x,y){
 	this.x=x;
 	this.y=y;

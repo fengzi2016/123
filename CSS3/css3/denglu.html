@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>后台管理</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css.css">
+ <SCRIPT LANGUAGE="JavaScript">  
+        function createCode()  
+        {  
+            var seed = new Array(  
+                    'abcdefghijklmnopqrstuvwxyz',  
+                    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',  
+                    '0123456789'  
+            );               //创建需要的数据数组  
+            var idx,i;  
+            var result = '';   //返回的结果变量  
+            for (i=0; i<6; i++) //根据指定的长度  
+            {  
+                idx = Math.floor(Math.random()*3); //获得随机数据的整数部分-获取一个随机整数  
+                result += seed[idx].substr(Math.floor(Math.random()*(seed[idx].length)), 1);//根据随机数获取数据中一个值  
+            }  
+            return result; //返回随机结果  
+        }  
+  
+        function test() {  
+            var inputRandom=document.getElementById("inputRandom").value;  
+            var autoRandom=document.getElementById("autoRandom").innerHTML;  
+            if(inputRandom==autoRandom) {  
+                alert("通过验证");  
+            } else {  
+                alert("验证码错误");  
+            }  
+  
+        }  
+    </SCRIPT>  
+<body>
+<div id="denglu">
+<label class="biaoti">登录</label><br>
+<label class="type">用户类型：</label>
+<select>
+	<option>用户</option>
+	<option>管理员</option>
+</select><br>
+<label class="name">用户名：</label>
+<input  class="the_third_way" type="text" name="username" value="李佳" disabled><br>
+<label class="name">手机号：</label>
+<input  class="the_third_way" type="text" name="username" value="666666666" disabled><br>
+<label class="password">密码：&nbsp&nbsp&nbsp</label>
+<input type="password" name="password" required><br>
+<label class="name">验证码：</label>
+ <tr>  
+        <td><input type="the_third_way" id="inputRandom"></td> 
+        <td><label id="autoRandom" value=""></label>
+        <input TYPE="button" VALUE="获取验证码" ONCLICK="autoRandom.innerHTML=createCode()"></td>    
+ </tr>
+ <br> 
+ <input class="queren"  type="button" value="登录" onclick="test()"> 
+</div>
+
+</body>
+<script type="text/javascript">  
+    window.onload()=autoRandom.innerHTML=createCode();  
+</script>  
+</html>

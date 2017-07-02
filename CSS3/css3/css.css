@@ -1,0 +1,56 @@
+
+*{
+	padding: 0;
+	margin: 0;
+}
+#denglu{
+	position: absolute;
+	top:30%;
+	left:50%;
+
+}
+/*三种方法定义disabled样式*/
+input[disabled]{
+	background: gray;
+}
+input:disabled{
+	background: lightgreen;
+}
+input.the_third_way{
+	background: lightblue;
+}
+.biaoti{
+	font-size: 40px;
+	position: relative;
+	top: -20px;
+	left: -20px;
+}
+/**/
+input[type="password"]{
+	border-color: lightblue;
+}
+/*中文*/@font-face{
+	font-family:'fzjljw';
+    font-style: normal;
+    font-weight: 400;
+	src:
+		 local('fzjljw'),
+		 url(http://s6.qhres.com/static/0c7c8a048bccb02f.woff)format('woff');
+		    
+		    			  }
+.name,.password,.type,input,select{
+	font-family: 'fzjljw',cursive;
+	font-size: 25px;
+	position: relative;
+	left: -40%;
+	margin: 3px;
+	 } 
+#autoRandom{
+	background: lightblue;
+}
+.queren{
+	position: relative;
+	top: 20px;
+	left: -20px;
+	width: 200px;
+}

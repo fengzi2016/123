@@ -31,10 +31,11 @@
             } else {  
                 alert("验证码错误");  
             }  
-            if(password!=520){
-                alert("密码错误");
+            var m=520;
+            if(password==m){
+                 alert("233.....520 too！好了，今天就玩到这里");
             }else{
-                alert("猜到了！好了！这次就玩到这里。");
+                alert("密码错误");
             }
   
         }  
@@ -51,8 +52,8 @@
 <input  class="the_third_way" type="text" name="username" value="李佳" disabled><br>
 <label class="name">手机号：</label>
 <input  class="the_third_way" type="text" name="username" value="666666666" disabled><br>
-<label class="password" id="password">密码：&nbsp&nbsp&nbsp</label>
-<input type="password" name="password" required><br>
+<label class="password" >密码：&nbsp&nbsp&nbsp</label>
+<input type="password" name="password" id="password" required><br>
 <label class="name">验证码：</label>
  <tr>  
         <td><input type="the_third_way" id="inputRandom"></td> 

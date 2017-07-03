@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script src="qrcode.js"></script>
+<script type="text/javascript">
+var qrcode = new QRCode('qrcode', {
+  text: 'they are three words that i want you to say',
+  width: 256,
+  height: 256,
+  colorDark : '#000000',
+  colorLight : '#ffffff',
+  correctLevel : QRCode.CorrectLevel.H
+});
+</script>
+<body>
+<div id="qrcode"></div>
+</body>
+
+</html>

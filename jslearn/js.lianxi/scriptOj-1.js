@@ -32,8 +32,11 @@ const toChineseNum = (num) => {
     for(let i=start;i<danweiArr.length;i++){
         if(arr[j]!=='零'){
         result=result+arr[j++]+danweiArr[i];
-        }else if(arr[++j]==='零'){
-         result=result+arr[j]+danweiArr[i];
+        }else if(i===1||5&&arr[++j]!=='零'){
+         result=result+'零';
+        }else if(i===1||5&&arr[++j]==='零'){
+          i=i+2;
+          result=result+'零'+danweiArr[i];
         }
     }
     return result;

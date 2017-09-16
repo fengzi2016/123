@@ -40,7 +40,29 @@ function Vector(x, y) {
     throw new InputError("Invalid direction: " + result);
   }
   
-  var box = {
+
+  function MultiplicatorUnitFailure() {}
+  
+  function primitiveMultiply(a, b) {
+    if (Math.random() < 0.5)
+      return a * b;
+    else
+      throw new MultiplicatorUnitFailure();
+  }
+  function reliableMultiply(a, b) {
+      let result;
+       try{
+        result= primitiveMultiply(a,b);
+       }catch(error){
+        result= primitiveMultiply(a,b);
+       } 
+      return result;
+  }
+  console.log(reliableMultiply(8,8))
+
+
+
+    var box = {
     locked: true,
     unlock: function() { this.locked = false; },
     lock: function() { this.locked = true;  },
@@ -50,3 +72,28 @@ function Vector(x, y) {
       return this._content;
     }
   };
+  function withBoxUnlocked(body) {
+   let lockStauts=box.locked;
+   if(lockStauts===false){
+      return body();
+   }else{
+    box.unlock();
+    try{
+     return body();
+    } finally {
+      box.lock();
+    } 
+   }
+  }
+  withBoxUnlocked(function() {
+    box.content.push("gold piece");
+  });
+  
+  try {
+    withBoxUnlocked(function() {
+      throw new Error("Pirates on the horizon! Abort!");
+    });
+  } catch (e) {
+    console.log("Error raised:", e);
+  }
+  console.log(box.locked);

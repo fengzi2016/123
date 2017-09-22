@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>addChange</title>
+</head>
+<style>
+    body{
+        height:1200px;
+        margin:0;
+        padding:0;
+    }
+    #maskLayer{
+        display: none;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    #popupLayer{
+        width: 300px;
+        height: 300px;
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -150px;
+        background-color: white;
+        /* border-radius: 5px; */
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
+    }
+    h2{
+        background:grey;
+        margin: 2px;
+        cursor: move;
+        border-bottom:2px solid black;
+    }
+    #content p{
+        position: relative;
+        top: 50px;
+        
+    }
+    #upYes{
+        position: absolute;;
+        bottom: 10%;
+        right: 20%;
+        cursor: pointer;
+    }
+    #upNo{
+        position: absolute;;
+        bottom: 10%;
+        right: 5%;
+        cursor: pointer;
+    }
+    #changeSize{
+        position: absolute;;
+        bottom: 0;
+        right: 0;
+        cursor: se-resize;
+    }
+</style>
+<body>
+    <div id="maskLayer"></div>
+    <div id="popupLayer">
+        <h2 id="moveArea">遮罩层</h2>
+        <div id="content">
+            <p contenteditable="true">我是遮罩层</p>
+            <button id="upYes">确认</button>
+            <button id="upNo">取消</button>
+            <span id="changeSize">go</span>
+        </div>
+    </div>
+    <button id="layerOpen">点我</button>
+</body>
+<script>
+    let mask=document.getElementById('maskLayer');
+    let uplayer=document.getElementById('popupLayer');
+    let moveArea=document.getElementById('moveArea');
+    let yesBtn=document.getElementById('upYes');
+    let noBtn=document.getElementById('upNo');
+    let openBtn=document.getElementById('layerOpen');
+    let changeSize=document.getElementById('changeSize');
+    //添加事件
+    let eventAdd={
+        addHandler:function(elt,type,handler){
+            if(elt.EventaddListener){
+                elt.addEventListener(type,handler,false);//如果已经有监听的事件，则用elt.addEventListerner(type,handler,false)这种方法再添加事件
+            }else if(elt.attachEvent){
+                elt.attachEvent("on"+type,handler);//如果没有监听的事件，则判断是否能添加事件，如果能添加事件，则添加
+            }else{
+                elt["on"+type]=handler;//？？？
+            }
+        }
+    }
+    function closeLayer(){
+        mask.style.display='none';
+        uplayer.style.display='none';
+    }
+    function openLayer(){
+        mask.style.display='block';
+        uplayer.style.display='block';
+    }
+    function moveLayer(event){
+        event=event||window.event;
+        let mouseleft=event.clientX;
+        let mousetop=event.clientY;
+         //当事件发生时，鼠标所在位置相对于浏览器左上角的坐标
+        let realiX=mouseleft-uplayer.offsetLeft;
+        let realiY=mousetop-uplayer.offsetTop;
+        //鼠标点击的位置-弹出窗口离左上角的位置=点击的位置在弹出窗口的相对位置
+        document.onmousemove=function(event){
+            event=event||window.event;
+            uplayer.style.left=event.clientX+150-realiX+'px'; 
+            uplayer.style.top=event.clientY+150-realiY+'px';
+        }
+        //因为负边距，所以弹出窗口的位置应该在原本位置再向左向上移动150px;
+        //所以弹出窗口离浏览器左上角真实位置为(win.style.left-150,win.style.top-150)
+        //鼠标点击事件发生位置-点击位置在弹出窗口的相对位置=弹出窗口离左上角的位置
+        // win.style.left-150=mouseleft-realiX+'px'; 
+        document.onmouseup=function(event){
+            document.onmousedown = null;
+            document.onmousemove = null;
+        }
+    }
+    function changeSizeBehavior(event){
+        document.onmousemove=function(event){
+            event=event||window.event;
+            uplayer.style.width=event.clientX-uplayer.offsetLeft+'px';
+            uplayer.style.height=event.clientY-uplayer.offsetTop+'px';
+        }
+        document.onmouseup=function(event){
+            document.onmousedown = null;
+            document.onmousemove = null;
+        }
+    }
+
+eventAdd.addHandler(openBtn, "click", openLayer);
+eventAdd.addHandler(yesBtn,'click',closeLayer);
+eventAdd.addHandler(noBtn,'click',closeLayer);
+eventAdd.addHandler(mask,'click',closeLayer);
+eventAdd.addHandler(moveArea,'mousedown',moveLayer);
+eventAdd.addHandler(changeSize,'mousedown',changeSizeBehavior);
+
+
+</script>
+</html>

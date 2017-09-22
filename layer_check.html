@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>layer</title>
+    <style>
+ #win {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 200px;
+  margin-left: -200px;
+  margin-top: -100px;
+  border: 3px solid red;
+}
+#win h2 {
+  margin-top: 0;
+  background: green;
+  padding: 10px 0; 
+  cursor: move;
+}
+#win span {
+  margin-left: 200px;
+  cursor: pointer;
+}
+#content div{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+#content button {
+  background: green;
+  padding: 10px 15px;
+  color: white;
+  cursor: pointer;
+}
+#mask {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: green;
+  opacity: 0.3;
+}
+body {
+  height: 1200px;
+}
+</style>
+</head>
+<body>
+ <!-- mask要在最前面，否则win里的按钮无法选择 -->
+<div id="mask"></div>
+<div id="win">
+  <h2>这是一个弹出层<span>×</span></h2>
+  <div id="content">
+    <p>这是一个弹出层</p>
+    <div>
+      <button>确认</button>
+      <button>取消</button>
+    </div>
+  </div>
+</div>
+
+<button>click me</button>
+</body>
+<script>
+var win = document.getElementById("win");
+var close = document.getElementsByTagName("span")[0];
+var title = document.getElementsByTagName("h2")[0];
+var confirm = document.getElementsByTagName("button")[0];
+var cancel = document.getElementsByTagName("button")[1];
+var click = document.getElementsByTagName("button")[2];
+var mask = document.getElementById("mask");
+
+ //添加event事件
+ var eventUtil = {
+     addHandler:function(elt,type,handler){
+         if(elt.addEventListener){
+             elt.addEventListener(type,handler,false);
+         }else if(elt.attachEvent){
+             elt.attachEvent('on'+type,handler);
+         }else{
+             elt["on"+type]=handle;
+         }
+     }
+ }
+ //定义各种event事件触发的函数
+ function setBlock() {
+  win.style.display = "block";
+  mask.style.display = "block";
+}
+
+function setNone() {
+  win.style.display = "none";
+  mask.style.display = "none";
+}
+
+//event.clientX 获取事件发生时鼠标相对于浏览器窗口左上角的X坐标
+//win.offsetLeft 相对于浏览器窗口左上角的left距离
+
+function setDrag(event) {
+  var disX, disY;
+  event = event || window.event;
+  console.log(event.clientX );
+  console.log(win.offsetLeft);
+  disX = event.clientX - win.offsetLeft;
+  disY = event.clientY - win.offsetTop;
+  document.onmousemove = function(event) {
+    event = event || window.event;
+    win.style.left = event.clientX + 200 - disX + "px";
+    win.style.top = event.clientY + 100 - disY + "px";
+  }
+  document.onmouseup = function() {
+    document.onmousedown = null;
+    document.onmousemove = null;
+  }
+}
+eventUtil.addHandler(click, "click", setBlock);
+eventUtil.addHandler(close, "click", setNone);
+eventUtil.addHandler(cancel, "click", setNone);
+eventUtil.addHandler(mask, "click", setNone);
+eventUtil.addHandler(title, "mousedown", setDrag);
+eventUtil.addHandler(confirm, "click", function(){alert("这是一个弹出层")});
+</script>
+</html>

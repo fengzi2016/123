@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=50.0">
@@ -7,53 +8,62 @@
     <title>Document</title>
 </head>
 <style>
-    *{
-        padding:0;
+    * {
+        padding: 0;
         margin: 0;
     }
-    p{
+
+    p {
         font-size: 24px;
     }
-    #vh{
-        width:25vh;
+
+    #vh {
+        width: 25vh;
         height: 25vh;
         background-color: salmon;
     }
-    #vw{
+
+    #vw {
         width: 25vw;
         height: 25vw;
-        background-color:navajowhite;
+        background-color: navajowhite;
     }
-    #vmin{
+
+    #vmin {
         width: 25vmin;
         height: 25vmin;
         background-color: orange;
     }
-    #vmax{
+
+    #vmax {
         width: 25vmax;
         height: 25vmax;
         background-color: #F700FF;
     }
-    .inner{
+
+    .inner {
         z-index: 10;
     }
-    #all{
+
+    #all {
         height: 500px;
         width: 500px;
-        background-color:aquamarine; 
+        background-color: aquamarine;
     }
-    td{
+
+    td {
         width: 100px;
     }
-    strong{
+
+    strong {
         float: right;
     }
-    .inner{
-        width: 10px;
 
+    .inner {
+        width: 10px;
     }
-  
 </style>
+
 <body>
     <div>
         <p>这是个针对vh、vw、vmin、vmax的测试</p>
@@ -62,31 +72,97 @@
             <div id="vw" class="inner">25vw</div>
             <div id="vmin" class="inner">25vmin</div>
             <div id="vmax" class="inner">25vmax</div>
-            <table class="outT"> 
+            <table class="outT">
                 <tr>
                     <td class="innerTd">
-                       <table class="innerT">
-                           <tr>
-                               <td class="inner">.</td>
-                               <td class="inner">.</td>
-                               <td class="inner">.</td>
-                               <td class="inner">.</td>
-                               <td class="inner">.</td>
-                               <td class="inner">.</td>
-                               <td class="inner">.</td>
-                               <td class="inner">.</td>
-                               <td class="inner">.</td>
-                               <td class="inner">.</td>
-                           </tr>
-                       </table>
-                     <strong>1</strong></td>
-                     <td><strong>2</strong></td>
-                     <td><strong>3</strong></td>
-                     <td><strong>4</strong></td>
-                     <td><strong>5</strong></td>
+                        <table class="innerT">
+                            <tr>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                            </tr>
+                        </table>
+                        <strong>1</strong></td>
+                    <td>
+                        <table class="innerT">
+                            <tr>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                            </tr>
+                        </table>
+                        <strong>2</strong>
+                    </td>
+
+                    <td>
+                        <table class="innerT">
+                            <tr>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                            </tr>
+                        </table>
+                        <strong>3</strong>
+                    </td>
+                    <td>
+                        <table class="innerT">
+                            <tr>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                            </tr>
+                        </table>
+                        <strong>4</strong>
+                    </td>
+                    <td>
+                        <table class="innerT">
+                            <tr>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                                <td class="inner">.</td>
+                            </tr>
+                        </table>
+                        <strong>5</strong>
+                    </td>
                 </tr>
             </table>
-         </div>
+        </div>
     </div>
 </body>
+
 </html>

@@ -42,16 +42,33 @@
         width: 500px;
         background-color:aquamarine; 
     }
+    table{
+        position:absolute;
+        bottom:0;
+        left:0;
+    }
+    span{
+        float:left;
+    }
 </style>
 <body>
     <div>
         <p>这是个针对vh、vw、vmin、vmax的测试</p>
         <div id="all">
-        <div id="vh" class="inner"></div>
-        <div id="vw" class="inner"></div>
-        <div id="vmin" class="inner"></div>
-        <div id="vmax" class="inner"></div>
-        </div>
+            <div id="vh" class="inner">25vh</div>
+            <div id="vw" class="inner">25vw</div>
+            <div id="vmin" class="inner">25vmin</div>
+            <div id="vmax" class="inner">25vmax</div>
+            <table>
+                <tr>
+                     <td><span>100px</span></td>
+                     <td><span>200px</span></td>
+                     <td><span>300px</span></td>
+                     <td><span>400px</span></td>
+                     <td><span>500px</span></td>
+                </tr>
+              </table>
+         </div>
     </div>
 </body>
 </html>

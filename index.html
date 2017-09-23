@@ -42,19 +42,17 @@
         width: 500px;
         background-color:aquamarine; 
     }
-    table{
-        width: 100%;
-        height: 100%;
-        position:absolute;
-        bottom:0;
-        right:0;
-    }
     td{
         width: 100px;
     }
     strong{
         float: right;
     }
+    .inner{
+        width: 10px;
+
+    }
+  
 </style>
 <body>
     <div>
@@ -64,9 +62,24 @@
             <div id="vw" class="inner">25vw</div>
             <div id="vmin" class="inner">25vmin</div>
             <div id="vmax" class="inner">25vmax</div>
-            <table>
+            <table class="outT"> 
                 <tr>
-                     <td><strong>1</strong></td>
+                    <td class="innerTd">
+                       <table class="innerT">
+                           <tr>
+                               <td class="inner">.</td>
+                               <td class="inner">.</td>
+                               <td class="inner">.</td>
+                               <td class="inner">.</td>
+                               <td class="inner">.</td>
+                               <td class="inner">.</td>
+                               <td class="inner">.</td>
+                               <td class="inner">.</td>
+                               <td class="inner">.</td>
+                               <td class="inner">.</td>
+                           </tr>
+                       </table>
+                     <strong>1</strong></td>
                      <td><strong>2</strong></td>
                      <td><strong>3</strong></td>
                      <td><strong>4</strong></td>

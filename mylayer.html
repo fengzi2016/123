@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .modal {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
+            height: 50%;
+            width: 50%;
+
+            position: fixed;
+            top: 40%;
+            left: 40%;
+            margin-left: -150px;
+            margin-top: -100px;
+        }
+        .modal::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <dialog open id="favDialog" class="modal">
+        <form method="dialog">
+            <section>
+                <p>这是个弹出层</p>
+            </section>
+            <menu>
+                <button id="cancel" type="reset">Cancel</button>
+                <button type="submit">Confirm</button>
+            </menu>
+        </form>
+    </dialog>
+    <menu>
+        <button id="updateDetails">弹出层</button>
+    </menu>
+    <div onclick="hide()" id="hide"></div>
+</body>
+
+<script>
+    (function () {
+        var favDialog = document.getElementById('favDialog');
+        var updateButton = document.getElementById('updateDetails');
+        var cancelButton = document.getElementById('cancel');
+        var hide=document.getElementById('hide')
+        favDialog.close();
+        updateButton.addEventListener('click', function (event) {
+            favDialog.showModal(); 
+        });
+        // Form cancel button closes the dialog box
+        cancelButton.addEventListener('click', function () {
+            favDialog.close();
+        });
+       
+        // Update button opens a modal dialog
+       
+    })();
+</script>
+
+</html>

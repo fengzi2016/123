@@ -17,35 +17,41 @@
     #vh{
         width:25vh;
         height: 25vh;
-        border: 1px solid black;
-        background: blue
+        background-color: salmon;
     }
     #vw{
         width: 25vw;
         height: 25vw;
-        border: 1px solid black;
-        background-color:aquamarine;
+        background-color:navajowhite;
     }
     #vmin{
-        width: 1vmin;
-        height: 1vmin;
-        border: 1px solid black;
+        width: 25vmin;
+        height: 25vmin;
         background-color: orange;
     }
     #vmax{
-        width: 1vmax;
-        height: 1vmax;
-        border: 1px solid black;
+        width: 25vmax;
+        height: 25vmax;
         background-color: #F700FF;
+    }
+    .inner{
+        z-index: 10;
+    }
+    #all{
+        height: 500px;
+        width: 500px;
+        background-color:aquamarine; 
     }
 </style>
 <body>
     <div>
         <p>这是个针对vh、vw、vmin、vmax的测试</p>
-        <div id="vh"></div>
-        <div id="vw"></div>
-        <div id="vmin"></div>
-        <div id="vmax"></div>
+        <div id="all">
+        <div id="vh" class="inner"></div>
+        <div id="vw" class="inner"></div>
+        <div id="vmin" class="inner"></div>
+        <div id="vmax" class="inner"></div>
+        </div>
     </div>
 </body>
 </html>

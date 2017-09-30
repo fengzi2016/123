@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=50.0">
@@ -7,68 +8,200 @@
     <title>Document</title>
 </head>
 <style>
-    *{
-        padding:0;
+    * {
+        padding: 0;
         margin: 0;
+        font-size: 2px;
     }
-    p{
-        font-size: 24px;
+
+    p {
+        font-size: 1px;
     }
-    #vh{
-        width:25vh;
-        height: 25vh;
+
+    #vh {
+        float: left;
+        width: 5vh;
+        height: 5vh;
         background-color: salmon;
     }
-    #vw{
-        width: 25vw;
-        height: 25vw;
-        background-color:navajowhite;
+
+    #vw {
+        float: left;
+        width: 5vw;
+        height: 5vw;
+        background-color: navajowhite;
     }
-    #vmin{
-        width: 25vmin;
-        height: 25vmin;
+
+    #vmin {
+        float: left;
+        width: 5vmin;
+        height: 5vmin;
         background-color: orange;
     }
-    #vmax{
-        width: 25vmax;
-        height: 25vmax;
+
+    #vmax {
+        float: left;
+        width: 5vmax;
+        height: 5vmax;
         background-color: #F700FF;
     }
-    .inner{
-        z-index: 10;
-    }
-    #all{
-        height: 500px;
-        width: 500px;
-        background-color:aquamarine; 
+
+    #all {
+        font-size: 1px;
+        height: 250px;
+        width: 250px;
+        background-color: aquamarine;
     }
     table{
-        position:absolute;
-        bottom:0;
-        left:0;
+        padding: 0;
+        margin: 0;
     }
-    span{
-        float:left;
+
+    td {
+        width: 50px;
+    }
+
+    strong {
+        float: right;
+    }
+
+    .inner {
+        width: 5px;
+    }
+
+    .rem {
+        float: left;
+        width: 5rem;
+        height: 5rem;
+        background-color: red;
+    }
+
+    .percent {
+        width: 5%;
+        height: 5%;
+        float: left;
+        background-color: greenyellow;
+    }
+
+    .em {
+        float: left;
+        width: 5em;
+        height: 5em;
+        background-color: orchid;
+    }
+
+    .percentInner {
+        float: left;
+        width: 5%;
+        height: 5%;
+        background-color:peru;
     }
 </style>
+
 <body>
     <div>
         <p>这是个针对vh、vw、vmin、vmax的测试</p>
+        <table class="outT">
+            <tr>
+                <td class="innerTd">
+                    <table class="innerT">
+                        <tr>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                        </tr>
+                    </table>
+                    <strong>1</strong></td>
+                <td>
+                    <table class="innerT">
+                        <tr>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                        </tr>
+                    </table>
+                    <strong>2</strong>
+                </td>
+
+                <td>
+                    <table class="innerT">
+                        <tr>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                        </tr>
+                    </table>
+                    <strong>3</strong>
+                </td>
+                <td>
+                    <table class="innerT">
+                        <tr>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                        </tr>
+                    </table>
+                    <strong>4</strong>
+                </td>
+                <td>
+                    <table class="innerT">
+                        <tr>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                            <td class="inner">.</td>
+                        </tr>
+                    </table>
+                    <strong>5</strong>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div class="percent">%O</div>
         <div id="all">
-            <div id="vh" class="inner">25vh</div>
-            <div id="vw" class="inner">25vw</div>
-            <div id="vmin" class="inner">25vmin</div>
-            <div id="vmax" class="inner">25vmax</div>
-            <table>
-                <tr>
-                     <td><span>100px</span></td>
-                     <td><span>200px</span></td>
-                     <td><span>300px</span></td>
-                     <td><span>400px</span></td>
-                     <td><span>500px</span></td>
-                </tr>
-              </table>
-         </div>
+            <div class="percentInner">%I</div>
+            <div id="vh" class="innerb">vh</div>
+            <div id="vw" class="innerb">vw</div>
+            <div id="vmax" class="innerb">vmax</div>
+            <div id="vmin" class="innerb">vmin</div>
+            <div class="rem">rem</div>
+            <div class="em">em</div>
+        </div>
     </div>
 </body>
+
 </html>

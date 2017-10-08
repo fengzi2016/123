@@ -1,7 +1,8 @@
 function parseExpression(program) {
   program = skipSpace(program);
   var match, expr;
-  if (match = /^"([^"]*)"/.exec(program))//exec()成功返回数组，失败返回null
+  //exec()成功返回数组，失败返回null
+  if (match = /^"([^"]*)"/.exec(program))
     expr = {type: "value", value: match[1]};
   else if (match = /^\d+\b/.exec(program))
     expr = {type: "value", value: Number(match[0])};

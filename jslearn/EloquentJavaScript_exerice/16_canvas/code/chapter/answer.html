@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- #test1{
+    width: 50%;
+    height: 50%;
+    background-color:lightblue;
+  } -->
+<style>
+    *{
+        padding: 0;
+        margin:0;
+    }
+    #test{
+   
+    }
+    
+</style>
+<body>
+  <canvas width="600" height="200"></canvas>
+</body>
+<script>
+    let cx=document.querySelector("canvas").getContext("2d");
+    function parallelogram(x,y){
+        cx.beginPath();
+        cx.moveTo(x,y);
+        cx.lineTo(x+50,y);
+        cx.lineTo(x+70,y+50);
+        cx.lineTo(x-20,y+50);
+        cx.closePath();
+        cx.stroke();
+    }
+    parallelogram(30,30);
+    function diamond(x,y){
+        cx.translate(x+30,y+30);
+        cx.rotate(Math.PI/4);
+        cx.fillStyle="red";
+        cx.fillRect=(-30,-3.0,60,60);
+        cx.resetTransform();
+    }
+    diamond(1400,30);
+
+</script>
+</html>

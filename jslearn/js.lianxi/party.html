@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function partyPlan(peopleArray,leaderArray,table){
+        
+            this.leaderArray=leaderArray;
+            this.peopleArray=peopleArray;
+            this.table=table;
+        
+    }
+    let table=[{
+        number:3,
+        type:11
+    },{
+        number:3,
+        type:10
+    }];
+    let peopleArray=[
+    1,2,3,4,5,6,7,8,9,10,
+    11,12,13,14,15,16,17,18,19,20,
+    21,22,23,24,25,26,27,28,29,30,
+    31,32,33,34,35,36,37,38,39,40,
+    41,42,43,44,45,46,47,48,49,50,
+    51,52,53,54,
+    ];
+    let leaderArray=[0,0,0,0,0,0,0,0,0,0];
+    let party=new partyPlan(peopleArray,leaderArray,table);
+    function help(party){
+       
+        let plan=[];
+        let number;
+        let exitArr=[];
+        let tempArr=[];
+        let count=0;
+        let limition = party.peopleArray.length;
+        let innerArray=0;
+        while(count<limition){
+        
+            number=Math.random();
+            number=Math.floor(number*limition);
+            if(exitArr.indexOf(number)===-1){
+                
+                exitArr.push(number);
+                tempArr.push(party.peopleArray[number]);
+                count++;
+                
+                if(tempArr.length===party.table[0].type&&innerArray<party.table[0].number){
+                
+                        plan.push(tempArr);
+                        tempArr=[];
+                        innerArray++;    
+                }else if(tempArr.length==party.table[1].type&&innerArray>=party.table[0].number){
+                    plan.push(tempArr);
+                    tempArr=[];
+                    innerArray++;   
+                }
+            }
+        }
+        
+        plan.push(party.leaderArray);
+        return plan;
+}
+
+function con(array){
+  array.forEach(element => {
+      console.log(element);
+      element.forEach(value=>{
+          console.log(value);
+      })
+  });
+}
+con(help(party));
+
+</script>
+</html>

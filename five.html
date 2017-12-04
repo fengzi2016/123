@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+    }
+    canvas{
+        margin: auto;
+        position: absolute;
+        top: 0; 
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+    }
+</style>
+<body>
+    <canvas width="450" height="450" id="canvas"></canvas>
+</body>
+<script>
+    let chess = document.getElementById("canvas");
+    let context = chess.getContext("2d");
+    context.strokeStyle="#8c8c8c";
+    let drawChessBord=function(){
+        for(let i=0;i<15;i++){
+            context.moveTo(15+i*30,15);
+            context.lineTo(15+i*30,435);
+            context.stroke();
+            context.moveTo(15,15+30*i);
+            context.lineTo(435,15+i*30);
+            context.stroke();
+        }
+    }
+    let onStep=function(i,j,me){
+        context.beginPath();
+        context.arc(15+i*30,15+j*30,13,0,Math.PI*2);
+        context.closePath();
+        let gradient = context.createRadialGradient(15+i*30,15+j*30,13,15+i*30,15+j*30,0);
+        if(me){
+            gradient.addColorStop(0,"#000");
+            gradient.addColorStop(1,"#636766");
+        }else{
+            gradient.addColorStop(0,"#d1d1d1");
+            gradient.addColorStop(1,"#f9f9f9");
+        }
+        context.fillStyle=gradient;
+        context.fill();
+        context.stroke();
+    }
+    let me=false;
+    let chessBoard=[];
+    for(let i=0;i<15;i++){
+            chessBoard[i]=[];
+            for(let j=0;j<15;j++){
+                chessBoard[i][j]=0;
+            }
+        }
+    chess.onclick=function(e){
+        let x=e.offsetX;
+        let y=e.offsetY;
+        let i= Math.floor(x/30);
+        let j= Math.floor(y/30);
+        if(chessBoard[i][j]==0){
+            if(me){
+                onStep(i,j,me);
+                chessBoard[i][j]=1;        
+            }else{
+                onStep(i,j,me);
+                chessBoard[i][j]=2;
+            }
+            me=!me;
+        }
+    }
+    
+    window.onload=function(){
+        drawChessBord();
+        
+
+    }
+  
+</script>
+</html>
